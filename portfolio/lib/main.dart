@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/constants/color_contstant.dart';
-
-import 'package:portfolio/screen/widgets/page_view.dart';
+import 'package:portfolio/view/screen/widgets/page_view.dart';
 
 void main() => runApp(const MyApp());
 
@@ -16,7 +15,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: blackColor12,
-        canvasColor: blackColor,
         textTheme: GoogleFonts.antonTextTheme(Theme.of(context).textTheme)
             .apply(bodyColor: Colors.white)
             .copyWith(

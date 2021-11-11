@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/color_contstant.dart';
-import 'package:portfolio/screen/contact_screen.dart';
-import 'package:portfolio/screen/home_screen.dart';
-import 'package:portfolio/screen/about_screen.dart';
-import 'package:portfolio/screen/project_screen.dart';
-import 'package:portfolio/screen/widgets/menu_item.dart';
 
-import 'package:portfolio/screen/widgets/responsive.dart';
+import 'package:portfolio/view/screen/about/about_screen.dart';
+import 'package:portfolio/view/screen/contact/contact_screen.dart';
+import 'package:portfolio/view/screen/home/home_screen.dart';
+import 'package:portfolio/view/screen/projects/project_screen.dart';
+import 'package:portfolio/view/screen/widgets/menu_item.dart';
+import 'package:portfolio/view/screen/widgets/responsive.dart';
 
 class PageViewModel extends StatefulWidget {
   const PageViewModel({Key? key}) : super(key: key);
@@ -57,7 +57,7 @@ class _PageViewModelState extends State<PageViewModel>
       bottomNavigationBar: (Responsive.isDesktop(context))
           ? null
           : BottomNavigationBar(
-              backgroundColor: Colors.red,
+              backgroundColor: blackColor12,
               elevation: 0,
               currentIndex: item,
               selectedItemColor: whiteColor,
@@ -129,28 +129,26 @@ class _PageViewModelState extends State<PageViewModel>
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 40),
-                        child: Column(
-                          children: [
-                            RotationTransition(
-                              turns: _animation,
-                              child: SizedBox(
-                                height: 80,
-                                width: 80,
-                                child: Image.asset(
-                                  'assets/images/logo.png',
-                                  color: whiteColor,
-                                ),
-                              ),
-                            ),
-                            const Divider(
-                              endIndent: 20,
+                      Center(
+                        child: RotationTransition(
+                          turns: _animation,
+                          child: SizedBox(
+                            height: 80,
+                            width: 80,
+                            child: Image.asset(
+                              'assets/images/logo.png',
                               color: whiteColor,
-                              thickness: 2,
-                            )
-                          ],
+                            ),
+                          ),
                         ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const Divider(
+                        endIndent: 20,
+                        color: whiteColor,
+                        thickness: 2,
                       ),
                       Menuitem(
                           press: () {
