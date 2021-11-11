@@ -1,33 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/model.dart';
 import 'package:portfolio/view/screen/home/widgets/social_icon.dart';
 
 import 'package:portfolio/view/screen/widgets/hover_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/view/screen/widgets/responsive.dart';
 
-class SocialMenu extends StatelessWidget {
+class SocialMenu extends StatefulWidget {
   const SocialMenu({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    Future _link(String link) async {
-      if (await canLaunch(link)) {
-        await launch(link);
-      } else {
-        debugPrint('Link Calısmıyor');
-      }
-    }
+  State<SocialMenu> createState() => _SocialMenuState();
+}
 
+class _SocialMenuState extends State<SocialMenu> {
+  late OnTapUrl ontap;
+  @override
+  void initState() {
+    super.initState();
+    ontap = OnTapUrl();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Row(
+        mainAxisAlignment: (Responsive.isMobile(context))
+            ? MainAxisAlignment.center
+            : MainAxisAlignment.start,
         children: [
           OnHover(
             child: Sosyalicon(
               name: 'assets/icons/github (1).png',
               press: () {
-                _link('https://github.com/YusufEbinc');
+                ontap.link('https://github.com/YusufEbinc');
               },
             ),
           ),
@@ -35,8 +43,8 @@ class SocialMenu extends StatelessWidget {
             child: Sosyalicon(
               name: 'assets/icons/instagram-logo.png',
               press: () {
-                _link(
-                    'https://www.instagram.com/yusufebinc/?utm_medium=copy_link');
+                ontap.link(
+                    'https://instagram.com/yusufebinc?utm_medium=copy_link');
               },
             ),
           ),
@@ -44,7 +52,7 @@ class SocialMenu extends StatelessWidget {
             child: Sosyalicon(
               name: 'assets/icons/linkedin-logo.png',
               press: () {
-                _link(
+                ontap.link(
                     'https://www.linkedin.com/in/yusuf-ebin%C3%A7-a53976207/');
               },
             ),
@@ -53,7 +61,7 @@ class SocialMenu extends StatelessWidget {
             child: Sosyalicon(
               name: 'assets/icons/twitter.png',
               press: () {
-                _link('https://twitter.com/?lang=tr');
+                ontap.link('https://twitter.com/?lang=tr');
               },
             ),
           ),

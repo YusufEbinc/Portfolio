@@ -20,15 +20,16 @@ class AboutPage extends StatelessWidget {
           children: [
             const MyImage(),
             const SizedBox(
-              height: 20,
+              height: 25,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Expanded(
                   child: MyLife(),
                 ),
-                if (Responsive.isDesktop(context)) const MyAbout(),
+                if (Responsive.isDesktop(context) &&
+                    (Responsive.isTablet(context))) ...[const MyAbout()]
               ],
             ),
             if (Responsive.isMobile(context)) const MyAbout()

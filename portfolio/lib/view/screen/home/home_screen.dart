@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    // Size size = MediaQuery.of(context).size;
     return Container(
       color: blackColor12,
       child: Column(
@@ -65,24 +65,29 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const Images(
+                  heightsize: .5,
+                  withsize: .3,
+                ),
                 Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(25),
-                    child: DecoratedBoxTransition(
-                      position: DecorationPosition.background,
-                      decoration: decorationTween.animate(_controller),
-                      child: SizedBox(
-                        width: size.width * .4,
-                        height: size.height * .5,
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: Image.asset(
-                            'assets/images/image.png',
-                          ),
-                        ),
-                      ),
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      Name(),
+                      SocialMenu(),
+                    ],
                   ),
+                ),
+              ],
+            ),
+          ] else if (Responsive.isTablet(context)) ...[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Images(
+                  heightsize: .5,
+                  withsize: .4,
                 ),
                 Expanded(
                   child: Column(
@@ -96,7 +101,10 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ],
             ),
           ] else ...[
-            const Images(),
+            const Images(
+              withsize: .4,
+              heightsize: .3,
+            ),
             const Name(),
             const SocialMenu(),
           ]

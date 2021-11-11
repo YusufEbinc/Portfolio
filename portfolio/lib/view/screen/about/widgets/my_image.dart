@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants/color_contstant.dart';
 
 class MyImage extends StatelessWidget {
   const MyImage({
@@ -9,11 +10,10 @@ class MyImage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      color: Colors.red,
       height: size.height * .7,
-      width: size.width * .7,
+      color: blackColor12,
       child: Image.asset(
-        'assets/images/man.jpg',
+        'assets/images/image2.jpg',
         fit: BoxFit.cover,
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants/color_contstant.dart';
+import 'package:portfolio/view/screen/widgets/responsive.dart';
 
 class Name extends StatelessWidget {
   const Name({
@@ -9,13 +10,20 @@ class Name extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String subtitle =
-        'Flutter ile çalışarak yeni deneyimlere imza atan ve bunlardan mutluluk duyan biriyim ';
+        'I am happy to learn and exhibit different innovations with flutter. ';
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: (Responsive.isMobile(context))
+            ? CrossAxisAlignment.center
+            : CrossAxisAlignment.start,
         children: [
-          Text('YUSUF EBİNÇ', style: Theme.of(context).textTheme.headline1!),
+          Text(
+            'YUSUF EBİNÇ',
+            style: (Responsive.isMobile(context))
+                ? Theme.of(context).textTheme.headline2
+                : Theme.of(context).textTheme.headline1,
+          ),
           const SizedBox(
             height: 10,
           ),

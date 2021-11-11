@@ -23,6 +23,7 @@ class MyLife extends StatelessWidget {
           subtitle,
           style: Theme.of(context).textTheme.bodyText2,
         ),
+        const SizedBox(height: 20),
       ],
     );
   }

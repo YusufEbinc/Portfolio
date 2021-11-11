@@ -14,13 +14,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: blackColor12,
+        canvasColor: blackColor,
         textTheme: GoogleFonts.antonTextTheme(Theme.of(context).textTheme)
-            .apply(bodyColor: Colors.white)
+            .apply(bodyColor: whiteColor)
             .copyWith(
               headline1: const TextStyle(
                 color: whiteColor,
                 fontSize: 47,
+                fontWeight: FontWeight.bold,
+              ),
+              headline2: const TextStyle(
+                color: whiteColor,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
               bodyText2: const TextStyle(
